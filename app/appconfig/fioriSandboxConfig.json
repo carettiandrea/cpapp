@@ -1,0 +1,79 @@
+{
+    "services": {
+      "LaunchPage": {
+        "adapter": {
+          "config": {
+            "catalogs": [],
+            "groups": [
+              {
+                "id": "Mitigations",
+                "title": "Mitigations",
+                "isPreset": true,
+                "isVisible": true,
+                "isGroupLocked": false,
+                "tiles": [
+                  {
+                    "id": "Mitigations",
+                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                    "properties": {
+                      "title": "Manage Mitigation",
+                      "targetURL": "#Mitigations-manage"
+                    }
+                  },
+                  {
+                    "id": "Risks",
+                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                    "properties": {
+                      "title": "Risks Mitigation",
+                      "targetURL": "#Risks-manage"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "NavTargetResolution": {
+        "config": {
+          "enableClientSideTargetResolution": true
+        }
+      },
+      "ClientSideTargetResolution": {
+        "adapter": {
+          "config": {
+            "inbounds": {
+              "Mitigations": {
+                "semanticObject": "Mitigations",
+                "action": "manage",
+                "title": "Manage Mitigation",
+                "signature": {
+                  "parameters": {},
+                  "additionalParameters": "ignored"
+                },
+                "resolutionResult": {
+                  "applicationType": "SAPUI5",
+                  "additionalInformation": "SAPUI5.Component=ns.mitigations",
+                  "url": "./mitigations/webapp/"
+                }
+              },
+              "Risks": {
+                "semanticObject": "Risks",
+                "action": "manage",
+                "title": "Manage Risks",
+                "signature": {
+                  "parameters": {},
+                  "additionalParameters": "ignored"
+                },
+                "resolutionResult": {
+                  "applicationType": "SAPUI5",
+                  "additionalInformation": "SAPUI5.Component=ns.risks",
+                  "url": "./risks/webapp/"
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+}
