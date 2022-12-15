@@ -1,9 +1,9 @@
 using {sap.ui.riskmanagement as my} from '../db/schema';
 
 @path : 'service/risk'
+@requires : 'authenticated-user'
 service RiskService {
 
-    //@(requires : 'authenticated-user')
     entity Risks
                         @(restrict : [
                           {
@@ -19,7 +19,6 @@ service RiskService {
 
     annotate Risks with @odata.draft.enabled;
 
-    //@(requires : 'authenticated-user')
     entity Mitigations
                         @(restrict : [
                                   {
