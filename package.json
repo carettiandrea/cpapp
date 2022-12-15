@@ -22,6 +22,7 @@
   "scripts": {
     "start": "cds run",
     "deploy_sqlite" : "cds deploy --to sqlite",
+    "compile_xsuaa" : "cds compile srv/ --to xsuaa > xs-security.json",
     "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-mitigations": "cds watch --open mitigations/webapp/index.html?sap-ui-xx-viewCache=false"
   },
