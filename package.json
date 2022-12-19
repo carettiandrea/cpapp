@@ -57,31 +57,38 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
+        "[development]": {
+          "kind": "sqlite"
+        },
         "[production]": {
           "kind": "hana-cloud"
         }
       },
       "auth": {
-        "kind": "mocked",
-        "users": {
-          "RiskManager@demo.com": {
-            "password": "init",
-            "roles": [
-              "RiskManager"
-            ]
-          },
-          "RiskViewer@demo.com": {
-            "password": "init",
-            "roles": [
-              "RiskViewer"
-            ]
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "RiskManager@demo.com": {
+              "password": "init",
+              "roles": [
+                "RiskManager"
+              ]
+            },
+            "RiskViewer@demo.com": {
+              "password": "init",
+              "roles": [
+                "RiskViewer"
+              ]
+            }
           }
         },
         "[production]": {
           "kind": "xsuaa"
         }
       }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
     }
   },
   "sapux": [
