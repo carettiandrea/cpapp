@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start": "cds run",
-    "deploy_sqlite" : "cds deploy --to sqlite",
-    "compile_xsuaa" : "cds compile srv/ --to xsuaa > xs-security.json",
+    "deploy_sqlite": "cds deploy --to sqlite",
+    "compile_xsuaa": "cds compile srv/ --to xsuaa > xs-security.json",
     "watch-risks": "cds watch --open risks/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-mitigations": "cds watch --open mitigations/webapp/index.html?sap-ui-xx-viewCache=false"
   },
@@ -58,12 +58,29 @@
     "requires": {
       "db": {
         "kind": "sqlite",
-        "credentials": {
-          "database": "hana-cloud"
+        "[production]": {
+          "kind": "hana-cloud"
         }
       },
       "auth": {
-        "kind": "xsuaa"
+        "kind": "mocked",
+        "users": {
+          "RiskManager@demo.com": {
+            "password": "init",
+            "roles": [
+              "RiskManager"
+            ]
+          },
+          "RiskViewer@demo.com": {
+            "password": "init",
+            "roles": [
+              "RiskViewer"
+            ]
+          }
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
       }
     }
   },
